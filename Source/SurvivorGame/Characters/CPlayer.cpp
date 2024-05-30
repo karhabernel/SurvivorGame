@@ -11,6 +11,8 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 
+#include "Characters/Components/StatComponent.h"
+
 ACPlayer::ACPlayer()
 {
 	PrimaryActorTick.bCanEverTick = true;
@@ -20,16 +22,20 @@ ACPlayer::ACPlayer()
 	CHelpers::CreateSceneComponent(this, &Camera, "Camera", SpringArm);
 	CHelpers::CreateSceneComponent(this, &PostProcess, "PostProcess", GetRootComponent());
 
+	//ActorComponents
+	CHelpers::CreateActorComponent(this, &Stat, "Stat");
+
+
 	//Component Settings
 	SpringArm->SetRelativeLocation(FVector(0, 0, 140));
 	SpringArm->SetRelativeRotation(FRotator(0, 90, 0));
-	SpringArm->TargetArmLength = 300.f;
+	SpringArm->TargetArmLength = 600.f;
 	SpringArm->bEnableCameraLag = true;
 	SpringArm->bUsePawnControlRotation = true;
 
 	bUseControllerRotationYaw = false;
 	GetCharacterMovement()->bOrientRotationToMovement = true;
-	GetCharacterMovement()->MaxWalkSpeed = 600.f;
+	GetCharacterMovement()->MaxWalkSpeed = Stat->GetCurrentSpeed();
 	GetCharacterMovement()->RotationRate = FRotator(0, 720, 0);
 }
 
@@ -61,6 +67,8 @@ void ACPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 float ACPlayer::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
+	TakeDamageBPEvenet(Damage, DamageEvent, EventInstigator, DamageCauser);
+
 	return 0.0f;
 }
 

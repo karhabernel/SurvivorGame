@@ -10,8 +10,9 @@ ASurvivorGameGameMode::ASurvivorGameGameMode()
 	// use our custom PlayerController class
 	PlayerControllerClass = ASurvivorGamePlayerController::StaticClass();
 
+	//Todo. 시작 플레이어 캐릭터 바꾸기
 	// set default pawn class to our Blueprinted character
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/TopDown/Blueprints/BP_TopDownCharacter"));
+	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Characters/Player/BP_Player"));
 	if (PlayerPawnBPClass.Class != nullptr)
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;

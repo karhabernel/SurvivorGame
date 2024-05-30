@@ -21,7 +21,11 @@ public:
 
 public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
 	virtual float TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
+	
+	UFUNCTION(BlueprintImplementableEvent)
+	void TakeDamageBPEvenet(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser);
 
 //----------------------------------------------------------------------------------------
 // Functions
@@ -43,8 +47,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
 	class UInputAction* Menu;
 
-
-
 	// Input Functions
 protected:
 	void Move(const FInputActionValue& Value);
@@ -62,6 +64,11 @@ private:
 
 	UPROPERTY(VisibleDefaultsOnly)
 	class UPostProcessComponent* PostProcess;
+
+	//Actor Components
+public:
+	UPROPERTY(BlueprintReadWrite, VisibleDefaultsOnly)
+	class UStatComponent* Stat;
 
 private:
 	//TakeDamage MemberVariable
