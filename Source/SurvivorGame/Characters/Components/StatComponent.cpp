@@ -21,3 +21,11 @@ void UStatComponent::DecreaseHealth(float InAmount)
 {
 }
 
+void UStatComponent::SetSpeedBonus(float InAmount)
+{
+}
+
+void UStatComponent::SetLaunchValueBonus(float InAmount)
+{
+}
+

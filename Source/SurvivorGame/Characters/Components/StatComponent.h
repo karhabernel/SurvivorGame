@@ -17,21 +17,37 @@ protected:
 	virtual void BeginPlay() override;
 
 public:	
+	//Getters
 	UFUNCTION(BlueprintPure)
 	FORCEINLINE float GetCurrentSpeed() { return Speed + SpeedBonus; }
+	
 	UFUNCTION(BlueprintPure)
 	FORCEINLINE float GetMaxHealth() { return MaxHealth + HealthBonus; }
 	
 	UFUNCTION(BlueprintPure)
+	FORCEINLINE float GetLaunchValue() { return LaunchValue + LaunchValueBonus; }
+	
+	UFUNCTION(BlueprintPure)
 	FORCEINLINE float GetSpeedBonusAmount() { return SpeedBonus; }
+	
 	UFUNCTION(BlueprintPure)
 	FORCEINLINE float GetHealthBonusAmount() { return HealthBonus; }
+	
 
+	//Setters
 	UFUNCTION(BlueprintCallable)
 	void IncreaseHealth(float InAmount);
 
 	UFUNCTION(BlueprintCallable)
 	void DecreaseHealth(float InAmount);
+
+
+	UFUNCTION(BlueprintCallable)
+	void SetSpeedBonus(float InAmount);
+
+	UFUNCTION(BlueprintCallable)
+	void SetLaunchValueBonus(float InAmount);
+
 
 private:
 	UPROPERTY(EditAnywhere, Category = "Speed")
@@ -45,6 +61,12 @@ private:
 	
 	UPROPERTY(EditAnywhere, Category = "Health")
 	float HealthBonus = 0.f;
+
+	UPROPERTY(EditAnywhere, Category = "Stats")
+	float LaunchValue = 25.f;
+
+	UPROPERTY(EditAnywhere, Category = "Stats")
+	float LaunchValueBonus = 0.f;
 
 private:
 	float CurrentHealth;

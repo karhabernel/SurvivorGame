@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
+#include "Components/StatComponent.h"
 #include "CPlayer.generated.h"
 
 UCLASS()
@@ -26,6 +27,8 @@ public:
 	
 	UFUNCTION(BlueprintImplementableEvent)
 	void TakeDamageBPEvenet(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser);
+
+	FORCEINLINE UStatComponent* GetStatComponent() { return Stat; }
 
 //----------------------------------------------------------------------------------------
 // Functions

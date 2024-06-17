@@ -11,7 +11,6 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 
-#include "Characters/Components/StatComponent.h"
 
 ACPlayer::ACPlayer()
 {
