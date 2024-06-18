@@ -17,5 +17,5 @@ protected:
 
 public:	
 	virtual void Tick(float DeltaTime) override;
-
+	//todo. 지속딜, 범위 안에 있는 적을 배열에 넣고 타이머로 딜 주다가 범위 밖으로 나가면 딜 중지되게 하기
 };
