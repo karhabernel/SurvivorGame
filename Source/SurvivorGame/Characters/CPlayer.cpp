@@ -24,7 +24,6 @@ ACPlayer::ACPlayer()
 	//ActorComponents
 	CHelpers::CreateActorComponent(this, &Stat, "Stat");
 
-
 	//Component Settings
 	SpringArm->SetRelativeLocation(FVector(0, 0, 140));
 	SpringArm->SetRelativeRotation(FRotator(0, 90, 0));

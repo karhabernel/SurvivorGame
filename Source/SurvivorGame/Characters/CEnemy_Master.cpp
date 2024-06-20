@@ -1,13 +1,19 @@
 #include "Characters/CEnemy_Master.h"
 
+#include "GameFramework/CharacterMovementComponent.h"
+
 #include "Global.h"
-#include "Cplayer.h"
 #include "Components/StatComponent.h"
+#include "Cplayer.h"
+
 
 ACEnemy_Master::ACEnemy_Master()
 {
 	PrimaryActorTick.bCanEverTick = true;
+	//ActorComponents
+	CHelpers::CreateActorComponent(this, &Stat, "Stat");
 
+	GetCharacterMovement()->MaxWalkSpeed = Stat->GetCurrentSpeed();
 }
 
 void ACEnemy_Master::BeginPlay()

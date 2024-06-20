@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Components/StatComponent.h"
 #include "CEnemy_Master.generated.h"
 
 UCLASS()
@@ -21,4 +22,12 @@ public:
 public:
 	UFUNCTION(BlueprintCallable)
 	virtual void BeHitted(float InDamage, AActor* DamageCauser);
+
+public:
+	FORCEINLINE UStatComponent* GetStatComponent() { return Stat; }
+
+	//Actor Components
+public:
+	UPROPERTY(BlueprintReadWrite, VisibleDefaultsOnly)
+	class UStatComponent* Stat;
 };

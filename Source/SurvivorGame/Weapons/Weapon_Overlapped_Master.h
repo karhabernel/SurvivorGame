@@ -35,5 +35,9 @@ public:
 	FORCEINLINE void ClearHittedCharacters() { HittedCharacters.Empty(); }
 
 private:
+	UPROPERTY(EditDefaultsOnly)
+	class UWeapon_DataAsset* DataAsset;
+
+private:
 	TArray<class ACharacter*> HittedCharacters;
 };
